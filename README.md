@@ -69,6 +69,3 @@ Cartify uses **Pinia** for global state across dedicated stores for products, ca
 
 ---
 
-## 📄 License
-
-[MIT](LICENSE)
