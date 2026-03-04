@@ -1,12 +1,12 @@
 <template lang="">
-  <div class="sticky top-0 z-50 flex items-center justify-between py-10 bg-white">
+  <div class="sticky top-0 z-50 flex items-center justify-between py-7 bg-white">
     <div>
-      <h1 class="text-4xl font-bold leading-3 tracking-widest text-center text-[#3d3d3d]">
+      <h1 class="text-3xl font-semibold leading-3 tracking-widest text-center text-[#3d3d3d]">
         CARTIFY
       </h1>
     </div>
     <nav class="hidden md:block">
-      <ul class="space-x-8 text-[#7e7e7e] text-xl hidden md:flex">
+      <ul class="space-x-8 text-[#7e7e7e] text-base hidden md:flex">
         <li class="hover:text-[#333] hover:underline">
           <router-link :to="{ name: 'home' }">Home</router-link>
         </li>
@@ -14,19 +14,19 @@
         <li class="relative" @mouseenter="openCatalog = true" @mouseleave="openCatalog = false">
           <router-link to="#" class="flex items-center hover:text-[#333] hover:underline"
             >Catalog
-            <ChevronDownIcon class="w-5 h-5 ml-1" />
+            <ChevronDownIcon class="size-3 ml-1" />
           </router-link>
           <CatalogMenu v-if="openCatalog" />
         </li>
         <li class="relative" @mouseenter="openBlog = true" @mouseleave="openBlog = false">
           <router-link to="#" class="flex items-center hover:text-[#333] hover:underline"
-            >Blog <ChevronDownIcon class="w-5 h-5 ml-1"
+            >Blog <ChevronDownIcon class="size-3 ml-1"
           /></router-link>
           <BlogMenu v-if="openBlog" />
         </li>
         <li class="relative" @mouseenter="openPages = true" @mouseleave="openPages = false">
           <router-link to="#" class="flex items-center hover:text-[#333] hover:underline"
-            >Pages <ChevronDownIcon class="w-5 h-5 ml-1"
+            >Pages <ChevronDownIcon class="size-3 ml-1"
           /></router-link>
           <PagesMenu v-if="openPages" />
         </li>
@@ -36,7 +36,7 @@
       <IconArea class="" />
     </div>
     <div class="block md:hidden">
-      <Bars3Icon class="w-8 h-8" @click="isMenuOpen = !isMenuOpen" />
+      <Bars3Icon class="size-6" @click="isMenuOpen = !isMenuOpen" />
     </div>
   </div>
   <div v-if="isMenuOpen" class="fixed inset-0 z-50 bg-black/40" @click="isMenuOpen = false">   

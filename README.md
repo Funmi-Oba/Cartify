@@ -2,6 +2,8 @@
 
 Cartify is a modern e-commerce web application built with Vue 3, Composition API, Pinia, and Tailwind CSS. The application integrates with a RESTful API to provide dynamic product fetching, server-side pagination, configurable per-page results, and responsive grid layouts.
 
+This project is a clone of Lezada - Multipurpose eCommerce Shopify Theme - https://lezada-demo.myshopify.com/
+
 ---
 
 ## 🚀 Features

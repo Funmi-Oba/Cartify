@@ -76,8 +76,8 @@
         <ShopAllProduct />
       </div>
 
-      <div class="flex justify-center bg-amber-100">
-        <div class="flex gap-2 bg-amber-500">
+      <div class="flex justify-center">
+        <div class="flex gap-2">
 <!-- <button
         
         :disabled="currentPage === 1"

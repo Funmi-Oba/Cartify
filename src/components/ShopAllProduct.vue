@@ -6,7 +6,10 @@
         v-for="product in productStore.getAllProducts.data"
         :key="product.id"
         :product="product"
-         :is-list-view="productStore.gridCols === 1"
+        :is-list-view="productStore.gridCols === 1"
+        :is-grid-two="productStore.gridCols === 2"
+        :is-grid-three="productStore.gridCols === 3"
+        :is-grid-four="productStore.gridCols === 4"
       />
     </div>
   </div>
@@ -19,7 +22,7 @@ import { useProductStore } from '@/stores/product'
 const productStore = useProductStore()
 
 const gridClass = computed(() => {
-  const map = {1: 'grid-cols-1', 2: 'grid-cols-2', 3: 'grid-cols-3', 4: 'grid-cols-4'}
+  const map = { 1: 'grid-cols-1', 2: 'grid-cols-2', 3: 'grid-cols-3', 4: 'grid-cols-4' }
   return map[productStore.gridCols] || 'grid-cols-3'
 })
 

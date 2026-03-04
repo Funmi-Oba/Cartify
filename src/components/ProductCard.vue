@@ -20,21 +20,43 @@
         </router-link>
       </div>
 
-      <div class="absolute flex flex-col items-center justify-center space-y-4 top-4 left-3 md:top-4 md:left-4">
-        <h2 class="bg-[#98d8ca] text-white p-3 size-12 rounded-full text-xs">SALE</h2>
-        <h2 class="bg-[#98d8ca] text-white p-3 size-12 rounded-full text-xs">-10%</h2>
+      <div
+        :class="[
+          'absolute flex flex-col items-center justify-center',
+          isGridFour ? 'top-2 left-2 space-y-1' : isGridThree ? 'top-3 left-3 space-y-2' : 'top-4 left-3 space-y-2 md:top-4 md:left-4',
+        ]"
+      >
+        <h2
+          :class="[
+            'bg-[#98d8ca] flex items-center justify-center text-white p-2 rounded-full',
+            isGridFour ? 'size-8 text-[10px]' : isGridThree ? 'size-10  text-xs' : 'size-12 text-xs'
+          ]"
+        >
+          SALE
+        </h2>
+        <h2
+           :class="[
+            'bg-[#98d8ca] flex items-center justify-center text-white p-2 rounded-full',
+            isGridFour ? 'size-8 text-[10px]' : isGridThree ? 'size-10  text-xs' : 'size-12 text-xs'
+          ]"
+        >
+          -10%
+        </h2>
       </div>
       <div
-        class="absolute group-hover:opacity-100 opacity-0 top-4 right-4 flex flex-col space-y-1.5"
+        :class="['absolute group-hover:opacity-100 opacity-0  flex flex-col ', isGridFour ? 'top-2 right-2 space-y-1' : 'top-4 right-4 space-y-1.5']"
       >
         <div v-if="loading" class="">
-          <button class="p-3 bg-white size-12">
-            <Icon icon="eos-icons:bubble-loading" class="w-5 h-5 text-[#333]" />
+          <button :class="['flex justify-center items-center bg-white', isGridFour ? 'size-6' : 'size-10 p-2']">
+            <Icon icon="eos-icons:bubble-loading" :class="['text-[#333]', isGridFour ? 'size-3':'size-5']" />
           </button>
         </div>
         <div v-else-if="existInWishlist" class="relative group/tooltip">
-          <button class="bg-white size-12 p-3 text-[#82807e] hover:text-[#333]" @click="removeInWishlist()">
-            <XMarkIcon class="w-5 h-5" />
+          <button
+            :class="['flex justify-center items-center bg-white  text-[#82807e] hover:text-[#333]', isGridFour ? 'size-6' : 'size-10 p-2']"
+            @click="removeInWishlist()"
+          >
+            <XMarkIcon :class="isGridFour ? 'size-3':'size-5'" />
           </button>
 
           <span
@@ -48,8 +70,11 @@
         </div>
 
         <div v-else class="relative group/tooltip">
-          <button class="bg-white size-12 p-3 text-[#82807e] hover:text-[#333]" @click="toggleWishlist()">
-            <HeartIcon class="w-5 h-5" />
+          <button
+           :class="['flex justify-center items-center bg-white  text-[#82807e] hover:text-[#333]', isGridFour ? 'size-6' : 'size-10 p-2']"
+            @click="toggleWishlist()"
+          >
+            <HeartIcon :class="isGridFour ? 'size-3':'size-5'"/>
           </button>
 
           <span
@@ -63,8 +88,8 @@
         </div>
 
         <div class="relative group/tooltip">
-          <button class="bg-white p-3 text-[#82807e] hover:text-[#333]">
-            <ArrowPathRoundedSquareIcon class="w-5 h-5" />
+          <button :class="['flex justify-center items-center bg-white text-[#82807e] hover:text-[#333]', isGridFour ? 'size-6' : 'size-10 p-2']">
+            <ArrowPathRoundedSquareIcon :class="isGridFour ? 'size-3':'size-5'" />
           </button>
           <span
             class="absolute right-full mr-2 top-1/2 -translate-y-1/2 opacity-0 group-hover/tooltip:opacity-100 transition-opacity bg-[#333] text-white px-3 py-2 rounded text-sm whitespace-nowrap pointer-events-none"
@@ -76,8 +101,8 @@
           </span>
         </div>
         <div class="relative group/tooltip">
-          <button class="bg-white p-3 text-[#82807e] hover:text-[#333]">
-            <MagnifyingGlassIcon class="w-5 h-5" />
+          <button :class="['flex justify-center items-center bg-white text-[#82807e] hover:text-[#333]', isGridFour ? 'size-6' : 'size-10 p-2']">
+            <MagnifyingGlassIcon :class="isGridFour ? 'size-3':'size-5'" />
           </button>
           <span
             class="absolute right-full mr-2 top-1/2 -translate-y-1/2 opacity-0 group-hover/tooltip:opacity-100 transition-opacity bg-[#333] text-white px-3 py-2 rounded text-sm whitespace-nowrap pointer-events-none"
@@ -138,6 +163,18 @@ const props = defineProps({
     required: true,
   },
   isListView: {
+    type: Boolean,
+    default: false,
+  },
+  isGridTwo: {
+    type: Boolean,
+    default: false,
+  },
+  isGridThree: {
+    type: Boolean,
+    default: false,
+  },
+  isGridFour: {
     type: Boolean,
     default: false,
   },

@@ -1,26 +1,26 @@
 <template lang="">
   <div>
     <ul class="flex space-x-8">
-      <li><MagnifyingGlassIcon class="cursor-pointer size-7" /></li>
+      <li><MagnifyingGlassIcon class="cursor-pointer size-5" /></li>
       <li>
         <div class="relative inline-block">
           <router-link :to="authStore.isAuthenticated ? { name: 'account' } : { name: 'login' }">
-            <UserIcon v-if="!authStore.isAuthenticated" class="cursor-pointer size-7" />
+            <UserIcon v-if="!authStore.isAuthenticated" class="cursor-pointer size-5" />
 
-            <UserPlusIcon v-if="authStore.isAuthenticated" class="cursor-pointer size-7" />
+            <UserPlusIcon v-if="authStore.isAuthenticated" class="cursor-pointer size-5" />
           </router-link>
         </div>
       </li>
       <li>
         <div class="relative inline-block">
           <router-link :to="{ name: 'wishlist' }">
-            <HeartIcon class="cursor-pointer size-7"
+            <HeartIcon class="cursor-pointer size-5"
           /></router-link>
 
           <span
             v-if="wishlist.length >= 0"
             type="button"
-            class="absolute z-10 flex items-center justify-center w-4 h-4 text-xs font-medium text-white bg-red-600 rounded-full shadow -top-1 -right-1"
+            class="absolute z-10 flex items-center justify-center  size-4 text-xs font-medium text-white bg-red-600 rounded-full shadow -top-2 -right-2"
           >
             {{ wishlist.length }}
           </span>
@@ -29,11 +29,11 @@
       <li>
         <div v-if="!isCartPath" class="relative inline-block">
       
-          <ShoppingCartIcon @click="isSideModalOpen = true" class="cursor-pointer size-7" />
+          <ShoppingCartIcon @click="isSideModalOpen = true" class="cursor-pointer size-5" />
           <span
             v-if="cart.length >= 0"
             type="button"
-            class="absolute z-10 flex items-center justify-center w-4 h-4 text-xs font-medium text-white bg-red-600 rounded-full shadow -top-1 -right-1"
+            class="absolute z-10 flex items-center justify-center size-4 text-xs font-medium text-white bg-red-600 rounded-full shadow -top-2 -right-2"
           >
             {{ cart.length }}
           </span>
