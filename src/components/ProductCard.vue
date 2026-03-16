@@ -23,40 +23,66 @@
       <div
         :class="[
           'absolute flex flex-col items-center justify-center',
-          isGridFour ? 'top-2 left-2 space-y-1' : isGridThree ? 'top-3 left-3 space-y-2' : 'top-4 left-3 space-y-2 md:top-4 md:left-4',
+          isGridFour
+            ? 'top-2 left-2 space-y-1'
+            : isGridThree
+              ? 'top-3 left-3 space-y-2'
+              : 'top-4 left-3 space-y-2 md:top-4 md:left-4',
         ]"
       >
         <h2
           :class="[
             'bg-[#98d8ca] flex items-center justify-center text-white p-2 rounded-full',
-            isGridFour ? 'size-8 text-[10px]' : isGridThree ? 'size-10  text-xs' : 'size-12 text-xs'
+            isGridFour
+              ? 'size-8 text-[10px]'
+              : isGridThree
+                ? 'size-10  text-xs'
+                : 'size-12 text-xs',
           ]"
         >
           SALE
         </h2>
         <h2
-           :class="[
+          :class="[
             'bg-[#98d8ca] flex items-center justify-center text-white p-2 rounded-full',
-            isGridFour ? 'size-8 text-[10px]' : isGridThree ? 'size-10  text-xs' : 'size-12 text-xs'
+            isGridFour
+              ? 'size-8 text-[10px]'
+              : isGridThree
+                ? 'size-10  text-xs'
+                : 'size-12 text-xs',
           ]"
         >
           -10%
         </h2>
       </div>
       <div
-        :class="['absolute group-hover:opacity-100 opacity-0  flex flex-col ', isGridFour ? 'top-2 right-2 space-y-1' : 'top-4 right-4 space-y-1.5']"
+        :class="[
+          'absolute group-hover:opacity-100 opacity-0  flex flex-col ',
+          isGridFour ? 'top-2 right-2 space-y-1' : 'top-4 right-4 space-y-1.5',
+        ]"
       >
         <div v-if="loading" class="">
-          <button :class="['flex justify-center items-center bg-white', isGridFour ? 'size-6' : 'size-10 p-2']">
-            <Icon icon="eos-icons:bubble-loading" :class="['text-[#333]', isGridFour ? 'size-3':'size-5']" />
+          <button
+            :class="[
+              'flex justify-center items-center bg-white',
+              isGridFour ? 'size-6' : 'size-10 p-2',
+            ]"
+          >
+            <Icon
+              icon="eos-icons:bubble-loading"
+              :class="['text-[#333]', isGridFour ? 'size-3' : 'size-5']"
+            />
           </button>
         </div>
         <div v-else-if="existInWishlist" class="relative group/tooltip">
           <button
-            :class="['flex justify-center items-center bg-white  text-[#82807e] hover:text-[#333]', isGridFour ? 'size-6' : 'size-10 p-2']"
+            :class="[
+              'flex justify-center items-center bg-white  text-[#82807e] hover:text-[#333]',
+              isGridFour ? 'size-6' : 'size-10 p-2',
+            ]"
             @click="removeInWishlist()"
           >
-            <XMarkIcon :class="isGridFour ? 'size-3':'size-5'" />
+            <XMarkIcon :class="isGridFour ? 'size-3' : 'size-5'" />
           </button>
 
           <span
@@ -71,10 +97,13 @@
 
         <div v-else class="relative group/tooltip">
           <button
-           :class="['flex justify-center items-center bg-white  text-[#82807e] hover:text-[#333]', isGridFour ? 'size-6' : 'size-10 p-2']"
+            :class="[
+              'flex justify-center items-center bg-white  text-[#82807e] hover:text-[#333]',
+              isGridFour ? 'size-6' : 'size-10 p-2',
+            ]"
             @click="toggleWishlist()"
           >
-            <HeartIcon :class="isGridFour ? 'size-3':'size-5'"/>
+            <HeartIcon :class="isGridFour ? 'size-3' : 'size-5'" />
           </button>
 
           <span
@@ -88,8 +117,14 @@
         </div>
 
         <div class="relative group/tooltip">
-          <button :class="['flex justify-center items-center bg-white text-[#82807e] hover:text-[#333]', isGridFour ? 'size-6' : 'size-10 p-2']">
-            <ArrowPathRoundedSquareIcon :class="isGridFour ? 'size-3':'size-5'" />
+          <button
+            @click="compare()"
+            :class="[
+              'flex justify-center items-center bg-white text-[#82807e] hover:text-[#333]',
+              isGridFour ? 'size-6' : 'size-10 p-2',
+            ]"
+          >
+            <ArrowPathRoundedSquareIcon :class="isGridFour ? 'size-3' : 'size-5'" />
           </button>
           <span
             class="absolute right-full mr-2 top-1/2 -translate-y-1/2 opacity-0 group-hover/tooltip:opacity-100 transition-opacity bg-[#333] text-white px-3 py-2 rounded text-sm whitespace-nowrap pointer-events-none"
@@ -101,8 +136,13 @@
           </span>
         </div>
         <div class="relative group/tooltip">
-          <button :class="['flex justify-center items-center bg-white text-[#82807e] hover:text-[#333]', isGridFour ? 'size-6' : 'size-10 p-2']">
-            <MagnifyingGlassIcon :class="isGridFour ? 'size-3':'size-5'" />
+          <button
+            :class="[
+              'flex justify-center items-center bg-white text-[#82807e] hover:text-[#333]',
+              isGridFour ? 'size-6' : 'size-10 p-2',
+            ]"
+          >
+            <MagnifyingGlassIcon :class="isGridFour ? 'size-3' : 'size-5'" />
           </button>
           <span
             class="absolute right-full mr-2 top-1/2 -translate-y-1/2 opacity-0 group-hover/tooltip:opacity-100 transition-opacity bg-[#333] text-white px-3 py-2 rounded text-sm whitespace-nowrap pointer-events-none"
@@ -143,6 +183,11 @@
       <CartModal :product="product" @close="openCartModal = false" />
     </div>
   </teleport>
+  <teleport to="body">
+    <div v-if="openCompareModal">
+      <CompareModal :product="product" @close="openCompareModal = false" />
+    </div>
+  </teleport>
 </template>
 <script setup>
 import {
@@ -156,7 +201,9 @@ import { ref, computed } from 'vue'
 import { defineProps } from 'vue'
 import { useWishListStore } from '../stores/wishlist'
 import { useCartStore } from '@/stores/cart'
+import { useCompareStore } from '@/stores/compare'
 import CartModal from './CartModal.vue'
+import CompareModal from './CompareModal.vue'
 const props = defineProps({
   product: {
     type: Object,
@@ -183,8 +230,10 @@ const hover = ref(false)
 const loading = ref(false)
 const loadingDelay = 1000
 const openCartModal = ref(false)
+const openCompareModal = ref(false)
 const wishlistStore = useWishListStore()
 const cartStore = useCartStore()
+const compareStore = useCompareStore()
 const toggleWishlist = () => {
   if (loading.value) return
   loading.value = true
@@ -210,6 +259,10 @@ const addToCart = async () => {
   await cartStore.addToCart({ product_id: props.product.id, quantity: 1 })
   openCartModal.value = true
   console.log('items added to cart', cartStore.getCart)
+}
+const compare = () => {
+  compareStore.compare(props.product)
+  openCompareModal.value = true
 }
 </script>
 <style lang=""></style>

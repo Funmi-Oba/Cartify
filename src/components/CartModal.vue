@@ -85,8 +85,8 @@ const totalItem = (id) => cartStore.getItemSubtotal(id)
 const cartTotal = computed(() => cartStore.getCartTotal)
 
 const cartItem = computed(() => cartStore.getCartItemById(props.product.id))
-
 onMounted(() => {
+
   document.body.style.overflow = 'hidden'
 })
 
