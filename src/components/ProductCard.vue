@@ -227,6 +227,7 @@ const props = defineProps({
   },
 })
 const hover = ref(false)
+const errorMessage = ref(null)
 const loading = ref(false)
 const loadingDelay = 1000
 const openCartModal = ref(false)
@@ -257,6 +258,8 @@ const removeInWishlist = () => {
 
 const addToCart = async () => {
   await cartStore.addToCart({ product_id: props.product.id, quantity: 1 })
+
+  
   openCartModal.value = true
   console.log('items added to cart', cartStore.getCart)
 }

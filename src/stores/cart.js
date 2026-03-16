@@ -1,6 +1,9 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import api from '@/helpers/axios'
+import { useToast } from 'vue-toastification'
+
+const toast = useToast()
 
 export const useCartStore = defineStore('cart', () => {
   const cart = ref([])
@@ -19,7 +22,18 @@ export const useCartStore = defineStore('cart', () => {
       message.value = 'Product Successfully Added To Your Shopping Cart'
       console.log(response.data.status)
     } catch (error) {
-      setMessage(error.message || error.error || 'Unknown error while adding item to cart')
+      const errMsg = error.message  || error.error || 'Unknown error while adding item to cart'
+      if (errMsg === 'Unauthenticated.'){
+        toast.info(`You need to login to add to cart; 
+Username: cartify@gmail.com, Password: 123456`)
+      }
+      else if(errMsg === 'Unexpected error'){
+        toast.error ('Check internet connection')
+      }
+      else{
+        toast.error(errMsg)
+      }
+     
       console.log(message.value)
       throw error
     }
