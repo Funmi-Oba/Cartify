@@ -1,49 +1,53 @@
 <template lang="">
-  <div class="sticky top-0 z-50 flex items-center justify-between py-7 bg-white">
+  <div class="sticky top-0 z-50 flex items-center justify-between px-4 md:px-8 py-5 md:py-7 bg-white">
     <div>
-      <h1 class="text-3xl font-semibold leading-3 tracking-widest text-center text-[#3d3d3d]">
+      <h1 class="text-2xl md:text-3xl font-semibold leading-3 tracking-widest text-center text-[#3d3d3d]">
         CARTIFY
       </h1>
     </div>
+
     <nav class="hidden md:block">
       <ul class="space-x-8 text-[#7e7e7e] text-base hidden md:flex">
         <li class="hover:text-[#333] hover:underline">
           <router-link :to="{ name: 'home' }">Home</router-link>
         </li>
-        <li class="hover:text-[#333] hover:underline">  <router-link :to="{ name: 'allCollections' }">Shop</router-link></li>
+        <li class="hover:text-[#333] hover:underline">
+          <router-link :to="{ name: 'allCollections' }">Shop</router-link>
+        </li>
         <li class="relative" @mouseenter="openCatalog = true" @mouseleave="openCatalog = false">
-          <router-link to="#" class="flex items-center hover:text-[#333] hover:underline"
-            >Catalog
-            <ChevronDownIcon class="size-3 ml-1" />
+          <router-link to="#" class="flex items-center hover:text-[#333] hover:underline">
+            Catalog <ChevronDownIcon class="size-3 ml-1" />
           </router-link>
           <CatalogMenu v-if="openCatalog" />
         </li>
         <li class="relative" @mouseenter="openBlog = true" @mouseleave="openBlog = false">
-          <router-link to="#" class="flex items-center hover:text-[#333] hover:underline"
-            >Blog <ChevronDownIcon class="size-3 ml-1"
-          /></router-link>
+          <router-link to="#" class="flex items-center hover:text-[#333] hover:underline">
+            Blog <ChevronDownIcon class="size-3 ml-1" />
+          </router-link>
           <BlogMenu v-if="openBlog" />
         </li>
         <li class="relative" @mouseenter="openPages = true" @mouseleave="openPages = false">
-          <router-link to="#" class="flex items-center hover:text-[#333] hover:underline"
-            >Pages <ChevronDownIcon class="size-3 ml-1"
-          /></router-link>
+          <router-link to="#" class="flex items-center hover:text-[#333] hover:underline">
+            Pages <ChevronDownIcon class="size-3 ml-1" />
+          </router-link>
           <PagesMenu v-if="openPages" />
         </li>
       </ul>
     </nav>
-    <div>
-      <IconArea class="" />
-    </div>
-    <div class="block md:hidden">
-      <Bars3Icon class="size-6" @click="isMenuOpen = !isMenuOpen" />
+
+    <div class="flex items-center gap-4">
+      <IconArea />
+      <div class="block md:hidden">
+        <Bars3Icon class="size-6 cursor-pointer" @click="isMenuOpen = !isMenuOpen" />
+      </div>
     </div>
   </div>
-  <div v-if="isMenuOpen" class="fixed inset-0 z-50 bg-black/40" @click="isMenuOpen = false">   
-    <MobileNavBarMenu/>
+
+  <div v-if="isMenuOpen" class="fixed inset-0 z-50 bg-black/40" @click="isMenuOpen = false">
+    <MobileNavBarMenu />
   </div>
-  
 </template>
+
 <script setup>
 import IconArea from './IconArea.vue'
 import { ChevronDownIcon, Bars3Icon } from '@heroicons/vue/24/solid'

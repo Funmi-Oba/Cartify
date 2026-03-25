@@ -1,13 +1,13 @@
 <template lang="">
   <div
-    :class="['mt-10 group', isListView ? 'flex flex-row items-start gap-6' : 'w-full']"
+    :class="['mt-6 md:mt-10 group', isListView ? 'flex flex-row items-start gap-6' : 'w-full']"
     @mouseenter="hover = true"
     @mouseleave="hover = false"
   >
     <div
       :class="[
-        'relative bg-[#f5f5f5] flex items-center justify-center p-6',
-        isListView ? 'size-80 shrink-0' : 'w-full aspect-square',
+        'relative bg-[#f5f5f5] flex items-center justify-center p-4 md:p-6',
+        isListView ? 'w-40 h-40 md:size-80 shrink-0' : 'w-full aspect-square',
       ]"
     >
       <div class="flex items-center justify-center w-full h-full">
@@ -27,29 +27,29 @@
             ? 'top-2 left-2 space-y-1'
             : isGridThree
               ? 'top-3 left-3 space-y-2'
-              : 'top-4 left-3 space-y-2 md:top-4 md:left-4',
+              : 'top-2 left-1 space-y-2 md:top-4 md:left-4',
         ]"
       >
         <h2
           :class="[
-            'bg-[#98d8ca] flex items-center justify-center text-white p-2 rounded-full',
+            'bg-[#98d8ca] flex items-center justify-center text-white p-2 rounded-xl md:rounded-full',
             isGridFour
               ? 'size-8 text-[10px]'
               : isGridThree
                 ? 'size-10  text-xs'
-                : 'size-12 text-xs',
+                : 'md:size-12 w-10 h-4 md:text-xs text-[10px]',
           ]"
         >
           SALE
         </h2>
         <h2
           :class="[
-            'bg-[#98d8ca] flex items-center justify-center text-white p-2 rounded-full',
+            'bg-[#98d8ca] flex items-center justify-center text-white p-2 rounded-xl md:rounded-full',
             isGridFour
               ? 'size-8 text-[10px]'
               : isGridThree
                 ? 'size-10  text-xs'
-                : 'size-12 text-xs',
+                : 'md:size-12 w-10 h-4 md:text-xs text-[10px]',
           ]"
         >
           -10%
@@ -156,11 +156,11 @@
       </div>
     </div>
     <div
-      :class="['flex flex-col space-y-2', isListView ? 'flex w-200 justify-center py-2' : 'py-5']"
+      :class="['flex flex-col space-y-2', isListView ? 'flex w-200 justify-center py-2' : 'py-3 md:py-5']"
     >
       <a
         v-if="!hover || isListView"
-        class="text-xl text-[#333333]"
+        class="text-sm md:text-xl text-[#333333]"
         :class="{
           'group-hover:opacity-0': !isListView,
           'line-clamp-1': !isListView,
