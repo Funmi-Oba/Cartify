@@ -55,11 +55,21 @@ import CatalogMenu from '@/components/CatalogMenu.vue'
 import MobileNavBarMenu from '@/components/MobileNavBarMenu.vue'
 import BlogMenu from '@/components/BlogMenu.vue'
 import PagesMenu from '@/components/PagesMenu.vue'
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const openCatalog = ref(false)
 const openBlog = ref(false)
 const openPages = ref(false)
 const isMenuOpen = ref(false)
+
+// Close mobile menu when screen becomes desktop size
+const handleResize = () => {
+  if (window.innerWidth >= 768) {
+    isMenuOpen.value = false
+  }
+}
+
+onMounted(() => window.addEventListener('resize', handleResize))
+onUnmounted(() => window.removeEventListener('resize', handleResize))
 </script>
 <style lang=""></style>

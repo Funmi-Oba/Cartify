@@ -57,7 +57,7 @@
       </div>
       <div
         :class="[
-          'absolute group-hover:opacity-100 opacity-0  flex flex-col ',
+          'absolute md:group-hover:opacity-100 md:opacity-0  opacity-100 flex flex-col ',
           isGridFour ? 'top-2 right-2 space-y-1' : 'top-4 right-4 space-y-1.5',
         ]"
       >
@@ -162,19 +162,26 @@
         v-if="!hover || isListView"
         class="text-sm md:text-xl text-[#333333]"
         :class="{
-          'group-hover:opacity-0': !isListView,
+          'md:group-hover:opacity-100': !isListView,
           'line-clamp-1': !isListView,
         }"
       >
         {{ product.id }}. {{ product.name }}
       </a>
       <a
-        v-if="hover || isListView"
+   v-if="hover || isListView"
         @click="addToCart()"
         class="text-xl text-[#d3122a] cursor-pointer"
-        :class="{ 'opacity-0 group-hover:opacity-100': !isListView }"
+        :class="{ 'md:opacity-0 md:group-hover:opacity-100 ': !isListView }"
         >+ Add To Cart</a
       >
+      <!-- Always show Add to Cart on mobile -->
+<a
+  @click="addToCart()"
+  class="text-sm text-[#d3122a] cursor-pointer md:hidden"
+>
+  + Add To Cart
+</a>
       <h2 class="font-bold text-[#333333]">${{ product.price }}</h2>
     </div>
   </div>
@@ -197,7 +204,7 @@ import {
   MagnifyingGlassIcon,
 } from '@heroicons/vue/24/outline'
 import { Icon } from '@iconify/vue'
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { defineProps } from 'vue'
 import { useWishListStore } from '../stores/wishlist'
 import { useCartStore } from '@/stores/cart'
@@ -267,5 +274,7 @@ const compare = () => {
   compareStore.compare(props.product)
   openCompareModal.value = true
 }
+
+
 </script>
 <style lang=""></style>

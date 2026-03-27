@@ -23,12 +23,12 @@
       class="max-w-5xl mx-auto hero-swiper"
     >
       <SwiperSlide v-for="product in products" :key="product.id">
-        <div class="relative h-[260px] md:h-[420px] rounded-lg overflow-hidden">
+        <div class="relative h-65 md:h-105 rounded-lg overflow-hidden">
           <img :src="product.image" class="absolute inset-0 object-cover w-full h-full" alt="" />
 
           <!-- Overlay Content -->
           <div class="relative flex items-center h-full px-8 md:px-28">
-            <div class="max-w-[180px] md:max-w-xs">
+            <div class="max-w-45 md:max-w-xs">
               <p
                 class="mb-2 md:mb-4 text-xs md:text-base font-bold tracking-widest uppercase"
                 :style="{ color: product.accessoriesColor }"
