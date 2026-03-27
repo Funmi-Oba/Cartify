@@ -65,12 +65,12 @@
           <button
             :class="[
               'flex justify-center items-center bg-white',
-              isGridFour ? 'size-6' : 'size-10 p-2',
+              isGridFour ? 'size-6' : 'md:size-10 size-5 p-2',
             ]"
           >
             <Icon
               icon="eos-icons:bubble-loading"
-              :class="['text-[#333]', isGridFour ? 'size-3' : 'size-5']"
+              :class="['text-[#333]', isGridFour ? 'size-3' : 'md:size-5 size-3']"
             />
           </button>
         </div>
@@ -99,11 +99,11 @@
           <button
             :class="[
               'flex justify-center items-center bg-white  text-[#82807e] hover:text-[#333]',
-              isGridFour ? 'size-6' : 'size-10 p-2',
+              isGridFour ? 'size-6' : 'md:size-10 size-5 p-2',
             ]"
             @click="toggleWishlist()"
           >
-            <HeartIcon :class="isGridFour ? 'size-3' : 'size-5'" />
+            <HeartIcon :class="isGridFour ? 'size-3' : 'md:size-5 size-3'" />
           </button>
 
           <span
