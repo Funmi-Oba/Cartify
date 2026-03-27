@@ -65,7 +65,7 @@
           <button
             :class="[
               'flex justify-center items-center bg-white',
-              isGridFour ? 'size-6' : 'md:size-10 size-6 md:p-2 p-1',
+              isGridFour ? 'size-6' : 'md:size-10 size-7 md:p-2 p-1',
             ]"
           >
             <Icon
@@ -78,7 +78,7 @@
           <button
             :class="[
               'flex justify-center items-center bg-white  text-[#82807e] hover:text-[#333]',
-              isGridFour ? 'size-6' : 'md:size-10 size-6 md:p-2 p-1',
+              isGridFour ? 'size-6' : 'md:size-10 size-7 md:p-2 p-1',
             ]"
             @click="removeInWishlist()"
           >
@@ -99,7 +99,7 @@
           <button
             :class="[
               'flex justify-center items-center bg-white  text-[#82807e] hover:text-[#333]',
-              isGridFour ? 'size-6' : 'md:size-10 size-6 md:p-2 p-1',
+              isGridFour ? 'size-6' : 'md:size-10 size-7 md:p-2 p-1',
             ]"
             @click="toggleWishlist()"
           >
@@ -121,7 +121,7 @@
             @click="compare()"
             :class="[
               'flex justify-center items-center bg-white text-[#82807e] hover:text-[#333]',
-              isGridFour ? 'size-6' : 'md:size-10 size-6 md:p-2 p-1',
+              isGridFour ? 'size-6' : 'md:size-10 size-7 md:p-2 p-1',
             ]"
           >
             <ArrowPathRoundedSquareIcon :class="isGridFour ? 'size-3' : 'size-5'" />
@@ -139,7 +139,7 @@
           <button
             :class="[
               'flex justify-center items-center bg-white text-[#82807e] hover:text-[#333]',
-              isGridFour ? 'size-6' : 'md:size-10 size-6 md:p-2 p-1',
+              isGridFour ? 'size-6' : 'md:size-10 size-7 md:p-2 p-1',
             ]"
           >
             <MagnifyingGlassIcon :class="isGridFour ? 'size-3' : 'size-5'" />
