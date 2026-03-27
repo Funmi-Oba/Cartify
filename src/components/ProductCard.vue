@@ -58,14 +58,14 @@
       <div
         :class="[
           'absolute md:group-hover:opacity-100 md:opacity-0  opacity-100 flex flex-col ',
-          isGridFour ? 'top-2 right-2 space-y-1' : 'top-4 right-4 space-y-1.5',
+          isGridFour ? 'top-2 right-2 space-y-1' : 'md:top-4 top-2 md:right-4 right-2 md:space-y-1.5 space-y-1',
         ]"
       >
         <div v-if="loading" class="">
           <button
             :class="[
               'flex justify-center items-center bg-white',
-              isGridFour ? 'size-6' : 'md:size-10 size-5 p-2',
+              isGridFour ? 'size-6' : 'md:size-10 size-6 md:p-2 p-1',
             ]"
           >
             <Icon
@@ -78,7 +78,7 @@
           <button
             :class="[
               'flex justify-center items-center bg-white  text-[#82807e] hover:text-[#333]',
-              isGridFour ? 'size-6' : 'size-10 p-2',
+              isGridFour ? 'size-6' : 'md:size-10 size-6 md:p-2 p-1',
             ]"
             @click="removeInWishlist()"
           >
@@ -99,11 +99,11 @@
           <button
             :class="[
               'flex justify-center items-center bg-white  text-[#82807e] hover:text-[#333]',
-              isGridFour ? 'size-6' : 'md:size-10 size-5 p-2',
+              isGridFour ? 'size-6' : 'md:size-10 size-6 md:p-2 p-1',
             ]"
             @click="toggleWishlist()"
           >
-            <HeartIcon :class="isGridFour ? 'size-3' : 'md:size-5 size-3'" />
+            <HeartIcon :class="isGridFour ? 'size-3' : 'size-5 '" />
           </button>
 
           <span
@@ -121,7 +121,7 @@
             @click="compare()"
             :class="[
               'flex justify-center items-center bg-white text-[#82807e] hover:text-[#333]',
-              isGridFour ? 'size-6' : 'size-10 p-2',
+              isGridFour ? 'size-6' : 'md:size-10 size-6 md:p-2 p-1',
             ]"
           >
             <ArrowPathRoundedSquareIcon :class="isGridFour ? 'size-3' : 'size-5'" />
@@ -139,7 +139,7 @@
           <button
             :class="[
               'flex justify-center items-center bg-white text-[#82807e] hover:text-[#333]',
-              isGridFour ? 'size-6' : 'size-10 p-2',
+              isGridFour ? 'size-6' : 'md:size-10 size-6 md:p-2 p-1',
             ]"
           >
             <MagnifyingGlassIcon :class="isGridFour ? 'size-3' : 'size-5'" />
