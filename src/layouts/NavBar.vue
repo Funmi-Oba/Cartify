@@ -1,9 +1,12 @@
 <template lang="">
   <div class="sticky top-0 z-50 flex items-center justify-between px-4 md:px-8 py-5 md:py-7 bg-white">
     <div>
-      <h1 class="text-2xl md:text-3xl font-semibold leading-3 tracking-widest text-center text-[#3d3d3d]">
+      <router-link :to="{name: 'home'}">
+<h1 class="text-2xl md:text-3xl font-semibold leading-3 tracking-widest text-center text-[#3d3d3d]">
         CARTIFY
       </h1>
+      </router-link>
+      
     </div>
 
     <nav class="hidden md:block">
