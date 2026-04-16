@@ -1,8 +1,8 @@
 <template lang="">
   <div
     :class="['mt-6 md:mt-10 group', isListView ? 'flex flex-row items-start gap-6' : 'w-full']"
-    @mouseenter="hover = true"
-    @mouseleave="hover = false"
+    @mouseenter="onMouseEnter"
+    @mouseleave="onMouseLeave"
   >
     <div
       :class="[
@@ -58,7 +58,9 @@
       <div
         :class="[
           'absolute md:group-hover:opacity-100 md:opacity-0  opacity-100 flex flex-col ',
-          isGridFour ? 'top-2 right-2 space-y-1' : 'md:top-4 top-2 md:right-4 right-2 md:space-y-1.5 space-y-1',
+          isGridFour
+            ? 'top-2 right-2 space-y-1'
+            : 'md:top-4 top-2 md:right-4 right-2 md:space-y-1.5 space-y-1',
         ]"
       >
         <div v-if="loading" class="">
@@ -156,7 +158,10 @@
       </div>
     </div>
     <div
-      :class="['flex flex-col space-y-2', isListView ? 'flex w-200 justify-center py-2' : 'py-3 md:py-5']"
+      :class="[
+        'flex flex-col space-y-2',
+        isListView ? 'flex w-200 justify-center py-2' : 'py-3 md:py-5',
+      ]"
     >
       <a
         v-if="!hover || isListView"
@@ -169,19 +174,16 @@
         {{ product.id }}. {{ product.name }}
       </a>
       <a
-   v-if="hover || isListView"
+        v-if="hover || isListView"
         @click="addToCart()"
         class="text-xl text-[#d3122a] cursor-pointer"
         :class="{ 'md:opacity-0 md:group-hover:opacity-100 ': !isListView }"
         >+ Add To Cart</a
       >
       <!-- Always show Add to Cart on mobile -->
-<a
-  @click="addToCart()"
-  class="text-sm text-[#d3122a] cursor-pointer md:hidden"
->
-  + Add To Cart
-</a>
+      <a @click="addToCart()" class="text-sm text-[#d3122a] cursor-pointer md:hidden">
+        + Add To Cart
+      </a>
       <h2 class="font-bold text-[#333333]">${{ product.price }}</h2>
     </div>
   </div>
@@ -242,6 +244,15 @@ const openCompareModal = ref(false)
 const wishlistStore = useWishListStore()
 const cartStore = useCartStore()
 const compareStore = useCompareStore()
+
+const onMouseEnter = () => {
+  if (window.innerWidth >= 768) hover.value = true
+}
+
+const onMouseLeave = () => {
+  if (window.innerWidth >= 768) hover.value = false
+}
+
 const toggleWishlist = () => {
   if (loading.value) return
   loading.value = true
@@ -266,7 +277,6 @@ const removeInWishlist = () => {
 const addToCart = async () => {
   await cartStore.addToCart({ product_id: props.product.id, quantity: 1 })
 
-  
   openCartModal.value = true
   console.log('items added to cart', cartStore.getCart)
 }
@@ -274,7 +284,5 @@ const compare = () => {
   compareStore.compare(props.product)
   openCompareModal.value = true
 }
-
-
 </script>
 <style lang=""></style>

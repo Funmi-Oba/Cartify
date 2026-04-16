@@ -1,6 +1,6 @@
 <template lang="">
   <div
-    class="absolute top-0 right-0 w-3/5 h-screen px-5 py-10 overflow-y-scroll bg-white shadow-lg md:w-95"
+    class="absolute top-0 right-0 w-4/5 bg-white h-screen px-5 py-10 overflow-y-scro shadow-lg md:w-95"
   >
     <div class="flex justify-between border-b border-[#eee]">
       <h2 class="text-[#333] text-xl">Cart</h2>
@@ -9,17 +9,17 @@
     <div v-if="cart.length === 0" class="mt-5">
       <h2 class="text-[#333] text-xl">Your cart is currently empty.</h2>
     </div>
-    <div v-else>
-      <div class="overflow-y-scroll h-82">
+    <div v-else class="">
+      <div class="flex-1 overflow-y-scroll h-100">
         <div
           v-for="item in cart"
           :key="item.id"
           class="flex items-start justify-between mt-3 py-3 border-b border-[#eee]"
         >
-          <div class="p-2">
-            <img :src="item.image" class="object-contain size-20" />
+          <div class="md:p-2 p-1">
+            <img :src="item.image" class="object-contain w-16 h-16 sm:w-20 sm:h-20" />
           </div>
-          <div class="flex flex-col justify-center p-2">
+          <div class="flex flex-col justify-center p-2 flex-1">
             <h2 class="text-[#333] text-sm">{{ item.id }}. {{ item.name }}</h2>
             <p class="text-[#777] text-xs">
               {{ item.quantity }} x
@@ -37,7 +37,7 @@
       </div>
       <div class="flex mt-10 space-x-2">
         <input type="checkbox" id="policy" v-model="agreeToTerms" />
-        <label class="text-[#777] text-lg" for="policy"
+        <label class="text-[#777] text-sm sm:text-lg" for="policy"
           >I agree with the terms and conditions</label
         >
       </div>
