@@ -48,11 +48,13 @@
       <h1 class="text-[#333] text-2xl md:text-4xl mt-6 max-w-2xl tracking-wide text-center px-4 md:px-0">
         Up To 40% Off Final Sale Items. Caught in the moment!
       </h1>
+      <router-link :to="{name: 'allCollections'}" class="text-[#333] text-lg font-bold mt-6 hover:underline">
       <button
         class="px-8 md:px-10 py-3 md:py-4 text-sm mt-10 tracking-widest text-white bg-[#333] hover:bg-black transition"
       >
         SHOP NOW
       </button>
+      </router-link>
     </div>
   </div>
 </template>
